@@ -13,7 +13,7 @@
 <meta property="og:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
 <meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/province.png">
 <meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png">
-<meta property="og:updated_time" content="2015-08-21T07:21:28.000Z">
+<meta property="og:updated_time" content="2015-08-21T08:54:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 iOS 中车牌验证的正则表达式">
 <meta name="twitter:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
@@ -245,14 +245,8 @@
 <p>2.<code>[A-Za-z_0-9]{5}</code>第二部分改成<code>[A-Za-z_0-9]{4}</code>，判断中间四位是否属于数字或者字母。</p>
 <p>3.最后一位我们另外判断<code>[a-zA-Z_0-9_\u4e00-\u9fa5]</code>,想必玩过正则表达式的同学都能看出来，这段正则是包括所有数字 0~9 /字母 A~Z &amp; a ~ z/汉字,这样一来就可以完美兼容末尾是汉字的情况了。</p>
 <p>###附上代码</p>
-<pre><code><span class="built_in">BOOL</span> validateCarNo(<span class="built_in">NSString</span> * carNo)
-{
-    <span class="built_in">NSString</span> * carRegex = <span class="string">@"^[A-Za-z]{1}[A-Za-z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fa5]$"</span>;
-       <span class="built_in">NSPredicate</span> * carPredicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>,carRegex];
-    <span class="built_in">BOOL</span> isCorrect = [carPredicate evaluateWithObject:carNo];
-    <span class="keyword">return</span> isCorrect;
- }
-</code></pre><p>###问题</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BOOL</span> validateCarNo(<span class="built_in">NSString</span> * carNo)</span><br><span class="line">&#123;</span><br><span class="line">   	<span class="built_in">NSString</span> * carRegex = <span class="string">@"^[A-Za-z]&#123;1&#125;[A-Za-z_0-9]&#123;4&#125;[a-zA-Z_0-9_\u4e00-\u9fa5]$"</span>;</span><br><span class="line">  		<span class="built_in">NSPredicate</span> * carPredicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>,carRegex];</span><br><span class="line">   	<span class="built_in">BOOL</span> isCorrect = [carPredicate evaluateWithObject:carNo];</span><br><span class="line">   	<span class="keyword">return</span> isCorrect;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>###问题</p>
 <p>细心的同学会发现，现在这种情况下，末尾是任何汉字是不是都可以通过验证了？比如我填个车牌号：”京A2234擦”? 咕~~(╯﹏╰)b，确实是,但是我们项目中是用自定义键盘输入的，如图，也只有那些正确的情况才有可能出现。不过如果真的将键盘改成系统键盘的话？这个问题要怎么解决呢？应该主要还是看用户了吧 😭</p>
 
       
