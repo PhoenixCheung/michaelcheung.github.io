@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Phoenix Cheung</title>
+  <title>关于 iOS 中车牌验证的正则表达式 | Phoenix Cheung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A iOS developer&apos;s daily">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Phoenix Cheung">
-<meta property="og:url" content="http://phoenixcheung.github.io/archives/2015/index.html">
+  <meta name="description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 iOS 中车牌验证的正则表达式">
+<meta property="og:url" content="http://phoenixcheung.github.io/2015/08/21/关于iOS-中车牌验证的正则表达式/index.html">
 <meta property="og:site_name" content="Phoenix Cheung">
-<meta property="og:description" content="A iOS developer&apos;s daily">
+<meta property="og:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
+<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/province.png">
+<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png">
+<meta property="og:updated_time" content="2015-08-21T07:21:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Phoenix Cheung">
-<meta name="twitter:description" content="A iOS developer&apos;s daily">
+<meta name="twitter:title" content="关于 iOS 中车牌验证的正则表达式">
+<meta name="twitter:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
   
     <link rel="alternative" href="/atom.xml" title="Phoenix Cheung" type="application/atom+xml">
   
@@ -194,103 +197,122 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-关于iOS-中车牌验证的正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/08/21/关于iOS-中车牌验证的正则表达式/" class="article-date">
+  	<time datetime="2015-08-21T06:29:05.000Z" itemprop="datePublished">2015-08-21</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于 iOS 中车牌验证的正则表达式
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/21/关于iOS-中车牌验证的正则表达式/" class="archive-article-date">
-  	<time datetime="2015-08-21T06:29:05.000Z" itemprop="datePublished">8月 21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/21/关于iOS-中车牌验证的正则表达式/">关于 iOS 中车牌验证的正则表达式</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近项目中有让用户输入自己的车牌号的需求，如下：<br><a id="more"></a></p>
+<p>###选择省份简称</p>
+<p><img src="http://7xl97z.com1.z0.glb.clouddn.com/province.png" alt=""></p>
+<p>###自定义键盘填写车牌</p>
+<p><img src="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png" alt=""></p>
+<p>所以在提交时验证用户填写的车牌是否合法，正常情况下</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *carRegex = @"^[<span class="keyword">A</span>-Za-z]&#123;1&#125;[<span class="keyword">A</span>-Za-z_0-9]&#123;5&#125;$"</span><br></pre></td></tr></table></figure>
+<p>似乎是很合理的，但是观察一下图二，尼玛啊，还有汉字有木有？！开警车，领事馆车，教练车的，吓尿了😢不过也不用紧张，我们只要将正则表达式稍作修改即可：我们正则表达式之前是两部分：</p>
+<p>1.<code>[A-Za-z]{1}</code>是第一部分，验证的是城市代号；</p>
+<p>2.<code>[A-Za-z_0-9]{5}</code>为第二部分，意思是后面五位可以为任意数字或者字母。</p>
+<p>在此基础上，我们将正则表达式分成三部分：</p>
+<p>1.<code>[A-Za-z]{1}</code>第一部分验证城市代号不用变。</p>
+<p>2.<code>[A-Za-z_0-9]{5}</code>第二部分改成<code>[A-Za-z_0-9]{4}</code>，判断中间四位是否属于数字或者字母。</p>
+<p>3.最后一位我们另外判断<code>[a-zA-Z_0-9_\u4e00-\u9fa5]</code>,想必玩过正则表达式的同学都能看出来，这段正则是包括所有数字 0~9 /字母 A~Z &amp; a ~ z/汉字,这样一来就可以完美兼容末尾是汉字的情况了。</p>
+<p>###附上代码</p>
+<pre><code><span class="built_in">BOOL</span> validateCarNo(<span class="built_in">NSString</span> * carNo)
+{
+    <span class="built_in">NSString</span> * carRegex = <span class="string">@"^[A-Za-z]{1}[A-Za-z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fa5]$"</span>;
+       <span class="built_in">NSPredicate</span> * carPredicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>,carRegex];
+    <span class="built_in">BOOL</span> isCorrect = [carPredicate evaluateWithObject:carNo];
+    <span class="keyword">return</span> isCorrect;
+ }
+</code></pre><p>###问题</p>
+<p>细心的同学会发现，现在这种情况下，末尾是任何汉字是不是都可以通过验证了？比如我填个车牌号：”京A2234擦”? 咕~~(╯﹏╰)b，确实是,但是我们项目中是用自定义键盘输入的，如图，也只有那些正确的情况才有可能出现。不过如果真的将键盘改成系统键盘的话？这个问题要怎么解决呢？应该主要还是看用户了吧 😭</p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/20/Test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记本博客的诞生</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/20/Test/" class="archive-article-date">
-  	<time datetime="2015-08-20T10:59:27.000Z" itemprop="datePublished">8月 20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/20/Test/">记本博客的诞生</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/20/hello-world/" class="archive-article-date">
-  	<time datetime="2015-08-20T03:51:39.000Z" itemprop="datePublished">8月 20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/20/hello-world/">Hello World</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="关于iOS-中车牌验证的正则表达式" data-title="关于 iOS 中车牌验证的正则表达式" data-url="http://phoenixcheung.github.io/2015/08/21/关于iOS-中车牌验证的正则表达式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"PhoenixCheung"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -316,8 +338,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
