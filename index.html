@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/系统设置跳转/" style="font-size: 10px;">系统设置跳转</a> <a href="/tags/经验/" style="font-size: 20px;">经验</a>
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/经验/" style="font-size: 10px;">经验</a>
 					</div>
 				</section>
 				
@@ -195,67 +195,6 @@
 	</div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-iOS-开发跳转各种系统设置" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/02/iOS-开发跳转各种系统设置/" class="article-date">
-  	<time datetime="2015-12-02T04:53:40.000Z" itemprop="datePublished">2015-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/02/iOS-开发跳转各种系统设置/">iOS  开发跳转各种系统设置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很久没更新博客了，看来我当初搭这个 Hexo 博客果然还是玩性居多啊。⊙﹏⊙b</p>
-<p>今日看到<a href="http://www.superqq.com/blog/2015/12/01/jump-setting-per-page/" target="_blank" rel="external">刚刚在线</a>上的这篇文章，小做记录，以备后用。</p>
-<p>跳转系统设置页面统一为以下方式</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#23450;&#20301;&#26381;&#21153;&#35774;&#32622;&#30028;&#38754;&#10;NSURL *url = [NSURL URLWithString:@&#34;prefs:root=LOCATION_SERVICES&#34;];&#10;if ([[UIApplication sharedApplication] canOpenURL:url])&#10;&#123;&#10;    [[UIApplication sharedApplication] openURL:url];&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>一些常用设置的 identifier 如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">About &#8212; prefs:root=General&#38;path=About&#10;Accessibility &#8212; prefs:root=General&#38;path=ACCESSIBILITY&#10;Airplane Mode On &#8212; prefs:root=AIRPLANE_MODE&#10;Auto-Lock &#8212; prefs:root=General&#38;path=AUTOLOCK&#10;Brightness &#8212; prefs:root=Brightness&#10;Bluetooth &#8212; prefs:root=General&#38;path=Bluetooth&#10;Date &#38; Time &#8212; prefs:root=General&#38;path=DATE_AND_TIME&#10;FaceTime &#8212; prefs:root=FACETIME&#10;General &#8212; prefs:root=General&#10;Keyboard &#8212; prefs:root=General&#38;path=Keyboard&#10;iCloud &#8212; prefs:root=CASTLE&#10;iCloud Storage &#38; Backup &#8212; prefs:root=CASTLE&#38;path=STORAGE_AND_BACKUP&#10;International &#8212; prefs:root=General&#38;path=INTERNATIONAL&#10;Location Services &#8212; prefs:root=LOCATION_SERVICES&#10;Music &#8212; prefs:root=MUSIC&#10;Music Equalizer &#8212; prefs:root=MUSIC&#38;path=EQ&#10;Music Volume Limit &#8212; prefs:root=MUSIC&#38;path=VolumeLimit&#10;Network &#8212; prefs:root=General&#38;path=Network&#10;Nike + iPod &#8212; prefs:root=NIKE_PLUS_IPOD&#10;Notes &#8212; prefs:root=NOTES&#10;Notification &#8212; prefs:root=NOTIFICATIONS_ID&#10;Phone &#8212; prefs:root=Phone&#10;Photos &#8212; prefs:root=Photos&#10;Profile &#8212; prefs:root=General&#38;path=ManagedConfigurationList&#10;Reset &#8212; prefs:root=General&#38;path=Reset&#10;Safari &#8212; prefs:root=Safari&#10;Siri &#8212; prefs:root=General&#38;path=Assistant&#10;Sounds &#8212; prefs:root=Sounds&#10;Software Update &#8212; prefs:root=General&#38;path=SOFTWARE_UPDATE_LINK&#10;Store &#8212; prefs:root=STORE&#10;Twitter &#8212; prefs:root=TWITTER&#10;Usage &#8212; prefs:root=General&#38;path=USAGE&#10;VPN &#8212; prefs:root=General&#38;path=Network/VPN&#10;Wallpaper &#8212; prefs:root=Wallpaper&#10;Wi-Fi &#8212; prefs:root=WIFI</span><br></pre></td></tr></table></figure>
-<p>Get 起来吧~</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统设置跳转/">系统设置跳转</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验/">经验</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
   
     <article id="post-关于iOS-中车牌验证的正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
   
