@@ -13,7 +13,7 @@
 <meta property="og:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
 <meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/province.png">
 <meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png">
-<meta property="og:updated_time" content="2015-08-21T09:50:45.000Z">
+<meta property="og:updated_time" content="2015-08-21T10:11:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 iOS 中车牌验证的正则表达式">
 <meta name="twitter:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
@@ -235,7 +235,7 @@
 <h2 id="选择省份简称">选择省份简称</h2><p><img src="http://7xl97z.com1.z0.glb.clouddn.com/province.png" alt=""></p>
 <h2 id="自定义键盘填写车牌">自定义键盘填写车牌</h2><p><img src="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png" alt=""></p>
 <p>所以在提交时验证用户填写的车牌是否合法，正常情况下</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *carRegex = @"^[<span class="keyword">A</span>-Za-z]&#123;1&#125;[<span class="keyword">A</span>-Za-z_0-9]&#123;5&#125;$"</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">NSString</span> *carRegex = <span class="comment">@"^[A-Za-z]&#123;1&#125;[A-Za-z_0-9]&#123;5&#125;$"</span></span><br></pre></td></tr></table></figure>
 <p>似乎是很合理的，但是观察一下图二，尼玛啊，还有汉字有木有？！开警车，领事馆车，教练车的，吓尿了😢不过也不用紧张，我们只要将正则表达式稍作修改即可：我们正则表达式之前是两部分：</p>
 <p>1.<code>[A-Za-z]{1}</code>是第一部分，验证的是城市代号；</p>
 <p>2.<code>[A-Za-z_0-9]{5}</code>为第二部分，意思是后面五位可以为任意数字或者字母。</p>
