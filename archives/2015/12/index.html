@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>记本博客的诞生 | Phoenix Cheung</title>
+  <title>Archives: 2015/12 | Phoenix Cheung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有搭博客的想法很久了，拜万恶的拖延症所赐，一直只有想法没有付诸行动，此次趁着自己刚好买了台新的 15吋 RMBP ，兴致又起来了。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="记本博客的诞生">
-<meta property="og:url" content="http://phoenixcheung.github.io/2015/08/20/Test/index.html">
+  <meta name="description" content="A iOS developer&apos;s daily">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Phoenix Cheung">
+<meta property="og:url" content="http://phoenixcheung.github.io/archives/2015/12/index.html">
 <meta property="og:site_name" content="Phoenix Cheung">
-<meta property="og:description" content="有搭博客的想法很久了，拜万恶的拖延症所赐，一直只有想法没有付诸行动，此次趁着自己刚好买了台新的 15吋 RMBP ，兴致又起来了。">
-<meta property="og:updated_time" content="2015-10-31T03:17:34.000Z">
+<meta property="og:description" content="A iOS developer&apos;s daily">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记本博客的诞生">
-<meta name="twitter:description" content="有搭博客的想法很久了，拜万恶的拖延症所赐，一直只有想法没有付诸行动，此次趁着自己刚好买了台新的 15吋 RMBP ，兴致又起来了。">
+<meta name="twitter:title" content="Phoenix Cheung">
+<meta name="twitter:description" content="A iOS developer&apos;s daily">
   
     <link rel="alternative" href="/atom.xml" title="Phoenix Cheung" type="application/atom+xml">
   
@@ -195,123 +194,53 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Test" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/08/20/Test/" class="article-date">
-  	<time datetime="2015-08-20T10:59:27.000Z" itemprop="datePublished">2015-08-20</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/12/02/iOS-开发跳转各种系统设置/" class="archive-article-date">
+  	<time datetime="2015-12-02T04:53:40.000Z" itemprop="datePublished">12月 2</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      记本博客的诞生
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/12/02/iOS-开发跳转各种系统设置/">iOS  开发跳转各种系统设置</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验/">经验</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统设置跳转/">系统设置跳转</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验/">经验</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有搭博客的想法很久了，拜万恶的拖延症所赐，一直只有想法没有付诸行动，此次趁着自己刚好买了台新的 15吋 RMBP ，兴致又起来了。</p>
-<a id="more"></a>
-<p>安装过程没什么好赘述的，毕竟网上成熟的教程很多，这边写写自己在搭建本博客的过程中碰到过的问题：</p>
-<p>· 安装 Git</p>
-<p>· 安装 node.js (安装的方式有很多种，可选pkg安装包安装，但是不知道为什么我用pkg安装一直失败，后改用<a href="http://brew.sh/" target="_blank" rel="external">homebrew</a>安装成功了)</p>
-<p>· 安装 hexo 也不难，<code>$ npm install -g hexo</code>即可，如果失败一般是权限问题，改用 <code>$ sudo npm install -g hexo</code>就可以了。</p>
-<p>· 配置 _config.yml 时，要注意，文件中每个选项的冒号<code>:</code>后面都必须空一格，否则会报错。</p>
-<p>· hexo 3.0 之后，_config.yml 的 deploy 设置，<code>type</code>要设置成git。</p>
-<p>· hexo 3.0 之后，hexo 的作者 tommy 为了使博客生成静态文件和部署的速度加快，将插件都剥离出来了，所以部分<a href="http://hexo.io/plugins/" target="_blank" rel="external">插件</a>要独立安装。（如：hexo-deployer-git）</p>
-<p>·<br>·<br>·</p>
-<p>· 搭建成功，我犯了一个非常非常low的错误，在 _config.yml 中配置 deploy 那一块时，我竟然手抖将 repository 写成了 respository ，就接这点纠结了大半天。。杀了我吧</p>
-<pre><code><span class="xml">最后，搭建 hexo 博客就跟写代码一样，过程也非常有趣 </span><span class="keyword">^_</span><span class="xml">^。</span>
-</code></pre>
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/08/21/关于iOS-中车牌验证的正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          关于 iOS 中车牌验证的正则表达式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/08/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Test" data-title="记本博客的诞生" data-url="http://phoenixcheung.github.io/2015/08/20/Test/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"PhoenixCheung"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -337,8 +266,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
