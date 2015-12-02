@@ -3,20 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于 iOS 中车牌验证的正则表达式 | Phoenix Cheung</title>
+  <title>iOS开发跳转各种系统设置 | Phoenix Cheung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
+  <meta name="description" content="很久没更新博客了，看来我当初搭这个 Hexo 博客果然还是玩性居多啊。⊙﹏⊙b
+今日看到刚刚在线上的这篇文章，小做记录，以备后用。
+跳转系统设置页面统一为以下方式
+1//&amp;#23450;&amp;#20301;&amp;#26381;&amp;#21153;&amp;#35774;&amp;#32622;&amp;#30028;&amp;#38754;&amp;#10;NSURL *url = [NSURL URLWithString:@&amp;#34;prefs:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于 iOS 中车牌验证的正则表达式">
-<meta property="og:url" content="http://phoenixcheung.github.io/2015/08/21/关于iOS-中车牌验证的正则表达式/index.html">
+<meta property="og:title" content="iOS开发跳转各种系统设置">
+<meta property="og:url" content="http://phoenixcheung.github.io/2015/12/02/iOS-开发跳转各种系统设置/index.html">
 <meta property="og:site_name" content="Phoenix Cheung">
-<meta property="og:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
-<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/province.png">
-<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png">
-<meta property="og:updated_time" content="2015-08-21T10:11:22.000Z">
+<meta property="og:description" content="很久没更新博客了，看来我当初搭这个 Hexo 博客果然还是玩性居多啊。⊙﹏⊙b
+今日看到刚刚在线上的这篇文章，小做记录，以备后用。
+跳转系统设置页面统一为以下方式
+1//&amp;#23450;&amp;#20301;&amp;#26381;&amp;#21153;&amp;#35774;&amp;#32622;&amp;#30028;&amp;#38754;&amp;#10;NSURL *url = [NSURL URLWithString:@&amp;#34;prefs:">
+<meta property="og:updated_time" content="2015-12-02T05:40:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于 iOS 中车牌验证的正则表达式">
-<meta name="twitter:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
+<meta name="twitter:title" content="iOS开发跳转各种系统设置">
+<meta name="twitter:description" content="很久没更新博客了，看来我当初搭这个 Hexo 博客果然还是玩性居多啊。⊙﹏⊙b
+今日看到刚刚在线上的这篇文章，小做记录，以备后用。
+跳转系统设置页面统一为以下方式
+1//&amp;#23450;&amp;#20301;&amp;#26381;&amp;#21153;&amp;#35774;&amp;#32622;&amp;#30028;&amp;#38754;&amp;#10;NSURL *url = [NSURL URLWithString:@&amp;#34;prefs:">
   
     <link rel="alternative" href="/atom.xml" title="Phoenix Cheung" type="application/atom+xml">
   
@@ -197,11 +204,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-关于iOS-中车牌验证的正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS-开发跳转各种系统设置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/21/关于iOS-中车牌验证的正则表达式/" class="article-date">
-  	<time datetime="2015-08-21T06:29:05.000Z" itemprop="datePublished">2015-08-21</time>
+      <a href="/2015/12/02/iOS-开发跳转各种系统设置/" class="article-date">
+  	<time datetime="2015-12-02T04:53:40.000Z" itemprop="datePublished">2015-12-02</time>
 </a>
     </div>
   
@@ -214,7 +221,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于 iOS 中车牌验证的正则表达式
+      iOS开发跳转各种系统设置
     </h1>
   
 
@@ -222,6 +229,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验/">经验</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -230,21 +241,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近项目中有让用户输入自己的车牌号的需求，如下：</p>
-<a id="more"></a>
-<h2 id="选择省份简称">选择省份简称</h2><p><img src="http://7xl97z.com1.z0.glb.clouddn.com/province.png" alt=""></p>
-<h2 id="自定义键盘填写车牌">自定义键盘填写车牌</h2><p><img src="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png" alt=""></p>
-<p>所以在提交时验证用户填写的车牌是否合法，正常情况下</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">NSString</span> *carRegex = <span class="comment">@"^[A-Za-z]&#123;1&#125;[A-Za-z_0-9]&#123;5&#125;$"</span></span><br></pre></td></tr></table></figure>
-<p>似乎是很合理的，但是观察一下图二，尼玛啊，还有汉字有木有？！开警车，领事馆车，教练车的，吓尿了😢不过也不用紧张，我们只要将正则表达式稍作修改即可：我们正则表达式之前是两部分：</p>
-<p>1.<code>[A-Za-z]{1}</code>是第一部分，验证的是城市代号；</p>
-<p>2.<code>[A-Za-z_0-9]{5}</code>为第二部分，意思是后面五位可以为任意数字或者字母。</p>
-<p>在此基础上，我们将正则表达式分成三部分：</p>
-<p>1.<code>[A-Za-z]{1}</code>第一部分验证城市代号不用变。</p>
-<p>2.<code>[A-Za-z_0-9]{5}</code>第二部分改成<code>[A-Za-z_0-9]{4}</code>，判断中间四位是否属于数字或者字母。</p>
-<p>3.最后一位我们另外判断<code>[a-zA-Z_0-9_\u4e00-\u9fa5]</code>,想必玩过正则表达式的同学都能看出来，这段正则是包括所有数字 0~9 /字母 A~Z &amp; a ~ z/汉字,这样一来就可以完美兼容末尾是汉字的情况了。</p>
-<h2 id="附上代码">附上代码</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BOOL</span> validateCarNo(<span class="built_in">NSString</span> * carNo)</span><br><span class="line">&#123;</span><br><span class="line">   	<span class="built_in">NSString</span> * carRegex = <span class="string">@"^[A-Za-z]&#123;1&#125;[A-Za-z_0-9]&#123;4&#125;[a-zA-Z_0-9_\u4e00-\u9fa5]$"</span>;</span><br><span class="line">  		<span class="built_in">NSPredicate</span> * carPredicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>,carRegex];</span><br><span class="line">   	<span class="built_in">BOOL</span> isCorrect = [carPredicate evaluateWithObject:carNo];</span><br><span class="line">   	<span class="keyword">return</span> isCorrect;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="问题"><em>问题</em></h2><p>细心的同学会发现，现在这种情况下，末尾是任何汉字是不是都可以通过验证了？比如我填个车牌号：”京A2234擦”? 咕~~(╯﹏╰)b，确实是,但是我们项目中是用自定义键盘输入的，如图，也只有那些正确的情况才有可能出现。不过如果真的将键盘改成系统键盘的话？这个问题要怎么解决呢？应该主要还是看用户了吧 😭</p>
+        <p>很久没更新博客了，看来我当初搭这个 Hexo 博客果然还是玩性居多啊。⊙﹏⊙b</p>
+<p>今日看到<a href="http://www.superqq.com/blog/2015/12/01/jump-setting-per-page/" target="_blank" rel="external">刚刚在线</a>上的这篇文章，小做记录，以备后用。</p>
+<p>跳转系统设置页面统一为以下方式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#23450;&#20301;&#26381;&#21153;&#35774;&#32622;&#30028;&#38754;&#10;NSURL *url = [NSURL URLWithString:@&#34;prefs:root=LOCATION_SERVICES&#34;];&#10;if ([[UIApplication sharedApplication] canOpenURL:url])&#10;&#123;&#10;    [[UIApplication sharedApplication] openURL:url];&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>一些常用设置的 identifier 如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">About &#8212; prefs:root=General&#38;path=About&#10;Accessibility &#8212; prefs:root=General&#38;path=ACCESSIBILITY&#10;Airplane Mode On &#8212; prefs:root=AIRPLANE_MODE&#10;Auto-Lock &#8212; prefs:root=General&#38;path=AUTOLOCK&#10;Brightness &#8212; prefs:root=Brightness&#10;Bluetooth &#8212; prefs:root=General&#38;path=Bluetooth&#10;Date &#38; Time &#8212; prefs:root=General&#38;path=DATE_AND_TIME&#10;FaceTime &#8212; prefs:root=FACETIME&#10;General &#8212; prefs:root=General&#10;Keyboard &#8212; prefs:root=General&#38;path=Keyboard&#10;iCloud &#8212; prefs:root=CASTLE&#10;iCloud Storage &#38; Backup &#8212; prefs:root=CASTLE&#38;path=STORAGE_AND_BACKUP&#10;International &#8212; prefs:root=General&#38;path=INTERNATIONAL&#10;Location Services &#8212; prefs:root=LOCATION_SERVICES&#10;Music &#8212; prefs:root=MUSIC&#10;Music Equalizer &#8212; prefs:root=MUSIC&#38;path=EQ&#10;Music Volume Limit &#8212; prefs:root=MUSIC&#38;path=VolumeLimit&#10;Network &#8212; prefs:root=General&#38;path=Network&#10;Nike + iPod &#8212; prefs:root=NIKE_PLUS_IPOD&#10;Notes &#8212; prefs:root=NOTES&#10;Notification &#8212; prefs:root=NOTIFICATIONS_ID&#10;Phone &#8212; prefs:root=Phone&#10;Photos &#8212; prefs:root=Photos&#10;Profile &#8212; prefs:root=General&#38;path=ManagedConfigurationList&#10;Reset &#8212; prefs:root=General&#38;path=Reset&#10;Safari &#8212; prefs:root=Safari&#10;Siri &#8212; prefs:root=General&#38;path=Assistant&#10;Sounds &#8212; prefs:root=Sounds&#10;Software Update &#8212; prefs:root=General&#38;path=SOFTWARE_UPDATE_LINK&#10;Store &#8212; prefs:root=STORE&#10;Twitter &#8212; prefs:root=TWITTER&#10;Usage &#8212; prefs:root=General&#38;path=USAGE&#10;VPN &#8212; prefs:root=General&#38;path=Network/VPN&#10;Wallpaper &#8212; prefs:root=Wallpaper&#10;Wi-Fi &#8212; prefs:root=WIFI</span><br></pre></td></tr></table></figure>
+<p>Get 起来吧~</p>
 
       
     </div>
@@ -254,18 +257,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/02/iOS-开发跳转各种系统设置/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          iOS开发跳转各种系统设置
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/08/20/Test/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">记本博客的诞生</div>
+    <a href="/2015/08/21/关于iOS-中车牌验证的正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于 iOS 中车牌验证的正则表达式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -294,7 +288,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="关于iOS-中车牌验证的正则表达式" data-title="关于 iOS 中车牌验证的正则表达式" data-url="http://phoenixcheung.github.io/2015/08/21/关于iOS-中车牌验证的正则表达式/"></div>
+	<div class="ds-thread" data-thread-key="iOS-开发跳转各种系统设置" data-title="iOS开发跳转各种系统设置" data-url="http://phoenixcheung.github.io/2015/12/02/iOS-开发跳转各种系统设置/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
