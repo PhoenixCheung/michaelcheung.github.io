@@ -5,15 +5,37 @@
   
   <title>Phoenix Cheung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A iOS developer&apos;s daily">
-<meta property="og:type" content="website">
+  <meta name="description" content="张闽 简历iOS 工程师###个人资料出生年月　1990年1月　　手机　18605025326
+所在城市　福建厦门　　  邮箱　iOSZhangmin@gmail.com
+毕业院校　仰恩大学 电子信息工程专业（2009-2013)
+ＧitHub　Phoenix Cheung
+###工作经历2014.03 至今　　厦门小鱼网　　iOS 工程师　
+工作内容
+
+负责小鱼网 iOS 3.x 系列,4.x">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Phoenix Cheung">
-<meta property="og:url" content="http://phoenixcheung.github.io/index.html">
+<meta property="og:url" content="http://phoenixcheung.github.io/2016/04/21/Resume/index.html">
 <meta property="og:site_name" content="Phoenix Cheung">
-<meta property="og:description" content="A iOS developer&apos;s daily">
+<meta property="og:description" content="张闽 简历iOS 工程师###个人资料出生年月　1990年1月　　手机　18605025326
+所在城市　福建厦门　　  邮箱　iOSZhangmin@gmail.com
+毕业院校　仰恩大学 电子信息工程专业（2009-2013)
+ＧitHub　Phoenix Cheung
+###工作经历2014.03 至今　　厦门小鱼网　　iOS 工程师　
+工作内容
+
+负责小鱼网 iOS 3.x 系列,4.x">
+<meta property="og:updated_time" content="2016-04-21T06:19:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phoenix Cheung">
-<meta name="twitter:description" content="A iOS developer&apos;s daily">
+<meta name="twitter:description" content="张闽 简历iOS 工程师###个人资料出生年月　1990年1月　　手机　18605025326
+所在城市　福建厦门　　  邮箱　iOSZhangmin@gmail.com
+毕业院校　仰恩大学 电子信息工程专业（2009-2013)
+ＧitHub　Phoenix Cheung
+###工作经历2014.03 至今　　厦门小鱼网　　iOS 工程师　
+工作内容
+
+负责小鱼网 iOS 3.x 系列,4.x">
   
     <link rel="alternative" href="/atom.xml" title="Phoenix Cheung" type="application/atom+xml">
   
@@ -194,9 +216,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-Resume" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Resume" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/21/Resume/" class="article-date">
@@ -313,256 +333,62 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/02/iOS-开发跳转各种系统设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发跳转各种系统设置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-  
-    <article id="post-iOS-开发跳转各种系统设置" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/02/iOS-开发跳转各种系统设置/" class="article-date">
-  	<time datetime="2015-12-02T04:53:40.000Z" itemprop="datePublished">2015-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/02/iOS-开发跳转各种系统设置/">iOS开发跳转各种系统设置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很久没更新博客了，看来我当初搭这个 Hexo 博客果然还是玩性居多啊。⊙﹏⊙b</p>
-<p>今日看到<a href="http://www.superqq.com/blog/2015/12/01/jump-setting-per-page/" target="_blank" rel="external">刚刚在线</a>上的这篇文章，小做记录，以备后用。</p>
-<p>跳转系统设置页面统一为以下方式</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#23450;&#20301;&#26381;&#21153;&#35774;&#32622;&#30028;&#38754;&#10;NSURL *url = [NSURL URLWithString:@&#34;prefs:root=LOCATION_SERVICES&#34;];&#10;if ([[UIApplication sharedApplication] canOpenURL:url])&#10;&#123;&#10;    [[UIApplication sharedApplication] openURL:url];&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>一些常用设置的 identifier 如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">About &#8212; prefs:root=General&#38;path=About&#10;Accessibility &#8212; prefs:root=General&#38;path=ACCESSIBILITY&#10;Airplane Mode On &#8212; prefs:root=AIRPLANE_MODE&#10;Auto-Lock &#8212; prefs:root=General&#38;path=AUTOLOCK&#10;Brightness &#8212; prefs:root=Brightness&#10;Bluetooth &#8212; prefs:root=General&#38;path=Bluetooth&#10;Date &#38; Time &#8212; prefs:root=General&#38;path=DATE_AND_TIME&#10;FaceTime &#8212; prefs:root=FACETIME&#10;General &#8212; prefs:root=General&#10;Keyboard &#8212; prefs:root=General&#38;path=Keyboard&#10;iCloud &#8212; prefs:root=CASTLE&#10;iCloud Storage &#38; Backup &#8212; prefs:root=CASTLE&#38;path=STORAGE_AND_BACKUP&#10;International &#8212; prefs:root=General&#38;path=INTERNATIONAL&#10;Location Services &#8212; prefs:root=LOCATION_SERVICES&#10;Music &#8212; prefs:root=MUSIC&#10;Music Equalizer &#8212; prefs:root=MUSIC&#38;path=EQ&#10;Music Volume Limit &#8212; prefs:root=MUSIC&#38;path=VolumeLimit&#10;Network &#8212; prefs:root=General&#38;path=Network&#10;Nike + iPod &#8212; prefs:root=NIKE_PLUS_IPOD&#10;Notes &#8212; prefs:root=NOTES&#10;Notification &#8212; prefs:root=NOTIFICATIONS_ID&#10;Phone &#8212; prefs:root=Phone&#10;Photos &#8212; prefs:root=Photos&#10;Profile &#8212; prefs:root=General&#38;path=ManagedConfigurationList&#10;Reset &#8212; prefs:root=General&#38;path=Reset&#10;Safari &#8212; prefs:root=Safari&#10;Siri &#8212; prefs:root=General&#38;path=Assistant&#10;Sounds &#8212; prefs:root=Sounds&#10;Software Update &#8212; prefs:root=General&#38;path=SOFTWARE_UPDATE_LINK&#10;Store &#8212; prefs:root=STORE&#10;Twitter &#8212; prefs:root=TWITTER&#10;Usage &#8212; prefs:root=General&#38;path=USAGE&#10;VPN &#8212; prefs:root=General&#38;path=Network/VPN&#10;Wallpaper &#8212; prefs:root=Wallpaper&#10;Wi-Fi &#8212; prefs:root=WIFI</span><br></pre></td></tr></table></figure>
-<p>Get 起来吧~</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验/">经验</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
-
-
-
-
-  
-    <article id="post-关于iOS-中车牌验证的正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/21/关于iOS-中车牌验证的正则表达式/" class="article-date">
-  	<time datetime="2015-08-21T06:29:05.000Z" itemprop="datePublished">2015-08-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/21/关于iOS-中车牌验证的正则表达式/">关于 iOS 中车牌验证的正则表达式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近项目中有让用户输入自己的车牌号的需求，如下：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/21/关于iOS-中车牌验证的正则表达式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Resume" data-title="" data-url="http://phoenixcheung.github.io/2016/04/21/Resume/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"PhoenixCheung"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-  
-    <article id="post-Test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/20/Test/" class="article-date">
-  	<time datetime="2015-08-20T10:59:27.000Z" itemprop="datePublished">2015-08-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/20/Test/">记本博客的诞生</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有搭博客的想法很久了，拜万恶的拖延症所赐，一直只有想法没有付诸行动，此次趁着自己刚好买了台新的 15吋 RMBP ，兴致又起来了。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验/">经验</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/20/Test/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/20/hello-world/" class="article-date">
-  	<time datetime="2015-08-20T03:51:39.000Z" itemprop="datePublished">2015-08-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html">Writing</a></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/20/hello-world/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -586,8 +412,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
