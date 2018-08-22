@@ -3,20 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于 iOS 中车牌验证的正则表达式 | Phoenix Cheung</title>
+  <title>CIFilter outputImage 与原图尺寸（size）不一致的问题 | Phoenix Cheung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
+  <meta name="description" content="项目中将 GPUImage 马赛克滤镜改用 CIFilter 实现，代码如下：
+1/**&amp;#10; *  &amp;#39532;&amp;#36187;&amp;#20811;&amp;#28388;&amp;#38236;&amp;#10; */&amp;#10;- (UIImage *)pixellateFilterWithScale:(CGFloat)scale &amp;#123;&amp;#10;    scale *= SCREEN_SCALE;&amp;#10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于 iOS 中车牌验证的正则表达式">
-<meta property="og:url" content="http://phoenixcheung.github.io/2015/08/21/关于iOS-中车牌验证的正则表达式/index.html">
+<meta property="og:title" content="CIFilter outputImage 与原图尺寸（size）不一致的问题">
+<meta property="og:url" content="http://phoenixcheung.github.io/2018/08/22/CIFilter-outputImage-与原图尺寸（size）不一致的问题/index.html">
 <meta property="og:site_name" content="Phoenix Cheung">
-<meta property="og:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
-<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/province.png">
-<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png">
-<meta property="og:updated_time" content="2015-08-21T10:11:22.000Z">
+<meta property="og:description" content="项目中将 GPUImage 马赛克滤镜改用 CIFilter 实现，代码如下：
+1/**&amp;#10; *  &amp;#39532;&amp;#36187;&amp;#20811;&amp;#28388;&amp;#38236;&amp;#10; */&amp;#10;- (UIImage *)pixellateFilterWithScale:(CGFloat)scale &amp;#123;&amp;#10;    scale *= SCREEN_SCALE;&amp;#10">
+<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/originalsize.png">
+<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/outputsize.png">
+<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/originalpreview.png">
+<meta property="og:image" content="http://7xl97z.com1.z0.glb.clouddn.com/outputpreview.png">
+<meta property="og:updated_time" content="2018-08-22T03:46:26.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于 iOS 中车牌验证的正则表达式">
-<meta name="twitter:description" content="最近项目中有让用户输入自己的车牌号的需求，如下：">
+<meta name="twitter:title" content="CIFilter outputImage 与原图尺寸（size）不一致的问题">
+<meta name="twitter:description" content="项目中将 GPUImage 马赛克滤镜改用 CIFilter 实现，代码如下：
+1/**&amp;#10; *  &amp;#39532;&amp;#36187;&amp;#20811;&amp;#28388;&amp;#38236;&amp;#10; */&amp;#10;- (UIImage *)pixellateFilterWithScale:(CGFloat)scale &amp;#123;&amp;#10;    scale *= SCREEN_SCALE;&amp;#10">
   
     <link rel="alternative" href="/atom.xml" title="Phoenix Cheung" type="application/atom+xml">
   
@@ -197,11 +202,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-关于iOS-中车牌验证的正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CIFilter-outputImage-与原图尺寸（size）不一致的问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/21/关于iOS-中车牌验证的正则表达式/" class="article-date">
-  	<time datetime="2015-08-21T06:29:05.000Z" itemprop="datePublished">2015-08-21</time>
+      <a href="/2018/08/22/CIFilter-outputImage-与原图尺寸（size）不一致的问题/" class="article-date">
+  	<time datetime="2018-08-22T03:28:18.000Z" itemprop="datePublished">2018-08-22</time>
 </a>
     </div>
   
@@ -214,7 +219,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于 iOS 中车牌验证的正则表达式
+      CIFilter outputImage 与原图尺寸（size）不一致的问题
     </h1>
   
 
@@ -222,6 +227,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CIFilter/">CIFilter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/采坑记录/">采坑记录</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -230,21 +239,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近项目中有让用户输入自己的车牌号的需求，如下：</p>
-<a id="more"></a>
-<h2 id="选择省份简称">选择省份简称</h2><p><img src="http://7xl97z.com1.z0.glb.clouddn.com/province.png" alt=""></p>
-<h2 id="自定义键盘填写车牌">自定义键盘填写车牌</h2><p><img src="http://7xl97z.com1.z0.glb.clouddn.com/carnumer.png" alt=""></p>
-<p>所以在提交时验证用户填写的车牌是否合法，正常情况下</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">NSString</span> *carRegex = <span class="comment">@"^[A-Za-z]&#123;1&#125;[A-Za-z_0-9]&#123;5&#125;$"</span></span><br></pre></td></tr></table></figure>
-<p>似乎是很合理的，但是观察一下图二，尼玛啊，还有汉字有木有？！开警车，领事馆车，教练车的，吓尿了😢不过也不用紧张，我们只要将正则表达式稍作修改即可：我们正则表达式之前是两部分：</p>
-<p>1.<code>[A-Za-z]{1}</code>是第一部分，验证的是城市代号；</p>
-<p>2.<code>[A-Za-z_0-9]{5}</code>为第二部分，意思是后面五位可以为任意数字或者字母。</p>
-<p>在此基础上，我们将正则表达式分成三部分：</p>
-<p>1.<code>[A-Za-z]{1}</code>第一部分验证城市代号不用变。</p>
-<p>2.<code>[A-Za-z_0-9]{5}</code>第二部分改成<code>[A-Za-z_0-9]{4}</code>，判断中间四位是否属于数字或者字母。</p>
-<p>3.最后一位我们另外判断<code>[a-zA-Z_0-9_\u4e00-\u9fa5]</code>,想必玩过正则表达式的同学都能看出来，这段正则是包括所有数字 0~9 /字母 A~Z &amp; a ~ z/汉字,这样一来就可以完美兼容末尾是汉字的情况了。</p>
-<h2 id="附上代码">附上代码</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BOOL</span> validateCarNo(<span class="built_in">NSString</span> * carNo)</span><br><span class="line">&#123;</span><br><span class="line">   	<span class="built_in">NSString</span> * carRegex = <span class="string">@"^[A-Za-z]&#123;1&#125;[A-Za-z_0-9]&#123;4&#125;[a-zA-Z_0-9_\u4e00-\u9fa5]$"</span>;</span><br><span class="line">  		<span class="built_in">NSPredicate</span> * carPredicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>,carRegex];</span><br><span class="line">   	<span class="built_in">BOOL</span> isCorrect = [carPredicate evaluateWithObject:carNo];</span><br><span class="line">   	<span class="keyword">return</span> isCorrect;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="问题"><em>问题</em></h2><p>细心的同学会发现，现在这种情况下，末尾是任何汉字是不是都可以通过验证了？比如我填个车牌号：”京A2234擦”? 咕~~(╯﹏╰)b，确实是,但是我们项目中是用自定义键盘输入的，如图，也只有那些正确的情况才有可能出现。不过如果真的将键盘改成系统键盘的话？这个问题要怎么解决呢？应该主要还是看用户了吧 😭</p>
+        <p>项目中将 <code>GPUImage</code> 马赛克滤镜改用 <code>CIFilter</code> 实现，代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/**&#10; *  &#39532;&#36187;&#20811;&#28388;&#38236;&#10; */&#10;- (UIImage *)pixellateFilterWithScale:(CGFloat)scale &#123;&#10;    scale *= SCREEN_SCALE;&#10;    CGFloat imageScale = SCREEN_WIDTH * SCREEN_SCALE / CGImageGetWidth(self.CGImage);&#10;    UIImage *image = [self scaledImageByFactor:imageScale];&#10;    CIFilter *filter = [CIFilter filterWithName:@&#34;CIPixellate&#34;];&#10;    CIImage *ci = [CIImage imageWithCGImage:image.CGImage];&#10;    [filter setValue:ci forKey:kCIInputImageKey];&#10;    [filter setValue:@(scale) forKey:kCIInputScaleKey];&#10;    CIImage *result = filter.outputImage;&#10;    CIContext *context = [CIContext contextWithOptions:nil];&#10;    CGImageRef cgImage = [context createCGImage:result fromRect:result.extent];&#10;    __autoreleasing UIImage *final = [UIImage imageWithCGImage:cgImage];&#10;    CGImageRelease(cgImage);&#10;    return final;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>经测试发现，打码的过程中卡顿现象明显，查看代码发现马赛克滤镜的实现与通用使用 <code>CIFilter</code> 实现的 <code>GaussianBlur</code> 实现只有部分代码区别，<code>GaussianBlur</code> 实现如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/**&#10; *  &#39640;&#26031;&#27169;&#31946;&#28388;&#38236;&#10; */&#10;- (UIImage *)gaussianBlurFilterWithRadius:(CGFloat)radius &#123;&#10;    CGFloat imageScale = SCREEN_WIDTH * [UIScreen mainScreen].scale / self.size.width;&#10;    UIImage *image = [self scaledImageByFactor:imageScale];&#10;    CIContext *context = [CIContext contextWithOptions:nil];&#10;    CIImage *inputImage = [CIImage imageWithCGImage:image.CGImage];&#10;    CIFilter *filter = [CIFilter filterWithName:@&#34;CIGaussianBlur&#34;];&#10;    [filter setValue:inputImage forKey:kCIInputImageKey];&#10;    [filter setValue:@(radius) forKey:kCIInputRadiusKey];&#10;    CIImage *result = [filter valueForKey:kCIOutputImageKey];&#10;    CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];&#10;    CGRect frame = CGRectZero;&#10;    frame.size.width = SCREEN_WIDTH * [UIScreen mainScreen].scale;&#10;    frame.size.height = floor(self.size.height * frame.size.width / self.size.width);&#10;    frame.origin.x = (filter.outputImage.extent.size.width - frame.size.width) / 2.0f;&#10;    frame.origin.y = (filter.outputImage.extent.size.height - frame.size.height) / 2.0f;&#10;    CGImageRef imageRef = CGImageCreateWithImageInRect(cgImage, frame);&#10;    CGImageRelease(cgImage);&#10;    __autoreleasing UIImage *retImage = [UIImage imageWithCGImage:imageRef];&#10;    CGImageRelease(imageRef);&#10;    return retImage;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>区别在于高斯模糊滤镜获取到 <code>outputImage</code> 之后，有对其进行二次裁剪，那么 <strong><em>为什么要对<code>outputImage</code> 进行二次裁剪呢？</em></strong>经过<strong>@和尚 </strong>指导调试，发现滤镜处理前的图片 <code>size</code> 为：</p>
+<p><img src="http://7xl97z.com1.z0.glb.clouddn.com/originalsize.png" alt="image-20180822104617016"></p>
+<p>而经过 <code>CIPixellate</code> 处理后的图片 <code>size</code> 为：</p>
+<p><img src="http://7xl97z.com1.z0.glb.clouddn.com/outputsize.png" alt=""></p>
+<p>我们再通过两张使用 MacOS 预览应用打开的图片以对比：</p>
+<p><img src="http://7xl97z.com1.z0.glb.clouddn.com/originalpreview.png" alt="image-20180822105802560"></p>
+<p><img src="http://7xl97z.com1.z0.glb.clouddn.com/outputpreview.png" alt="image-20180822105652102"></p>
+<p>观察上面两张图片的虚线范围（<code>CIFilter</code> 处理后的图片我用箭头标注），发现<strong>尺寸已经明显发生了不小的变化</strong> ，所以 <code>GaussianBlur</code> 里面的图片截取代码就容易理解了。</p>
+<p>查阅 <code>CIImage</code> 文档并没有关于 <code>extent</code> 属性，信息很少：</p>
+<blockquote>
+<p>The extent of the filter shape.</p>
+<p>Extent is a rectangle that describes the filter shape in the working coordinate space with a fixed area.</p>
+</blockquote>
+<p>Stack Overflow 上倒是搜到两个相关的问答：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/20531938/cigaussianblur-image-size/20533801#20533801" target="_blank" rel="external">Stack Overflow: CIGaussianBlur image size</a> </li>
+<li><a href="https://stackoverflow.com/questions/16536110/cipixellate-output-image-size-is-different" target="_blank" rel="external">Stack Overflow: CIPixellate output image size is different</a></li>
+</ul>
 
       
     </div>
@@ -254,18 +270,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/02/iOS-开发跳转各种系统设置/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/22/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          iOS开发跳转各种系统设置
+          Hello World
         
       </div>
     </a>
   
   
-    <a href="/2015/08/20/Test/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">记本博客的诞生</div>
+    <a href="/2016/06/07/CocoaPods-Unable-to-satisfy-the-following-requirements-的解决方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CocoaPods Unable to satisfy the following requirements  的解决方法</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -294,7 +310,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="关于iOS-中车牌验证的正则表达式" data-title="关于 iOS 中车牌验证的正则表达式" data-url="http://phoenixcheung.github.io/2015/08/21/关于iOS-中车牌验证的正则表达式/"></div>
+	<div class="ds-thread" data-thread-key="CIFilter-outputImage-与原图尺寸（size）不一致的问题" data-title="CIFilter outputImage 与原图尺寸（size）不一致的问题" data-url="http://phoenixcheung.github.io/2018/08/22/CIFilter-outputImage-与原图尺寸（size）不一致的问题/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
